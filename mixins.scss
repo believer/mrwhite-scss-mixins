@@ -1,0 +1,19 @@
+/**
+ * Apperance
+ */
+@mixin appearance($property:none) {
+  @include prefix(appearance, $property)
+}
+
+/**
+ * Prefixes
+ * @type {[type]}
+ */
+$prefixes: webkit moz ms o;
+
+@mixin prefix($property, $value) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+  #{$property}: #{$value}
+}
