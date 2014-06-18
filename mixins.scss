@@ -1,8 +1,55 @@
+/* Shapes and sizing
+--------------------------------------------------------*/
+@mixin size($width, $height:$width) {
+  height:$height;
+  width:$width;
+}
+
+@mixin circle($size) {
+  @include size($size);
+  @include border-radius($size);
+}
+
+@mixin oval($size) {
+  $half: $size / 2;
+  @include size($size, $half);
+  $radius:$size / $half + "px";
+  @include border-radius($radius);
+}
+
+@mixin square($size) {
+  @include size($size);
+}
+
+/* Mixins
+--------------------------------------------------------*/
+
 /**
  * Apperance
  */
 @mixin appearance($property:none) {
-  @include prefix(appearance, $property)
+  @include prefix(appearance, $property);
+}
+
+/**
+ * Border radius
+ */
+@mixin border-radius($radius:3px) {
+  @include prefix(border-radius, $radius);
+}
+
+/**
+ * Box shadow
+ */
+@mixin box-shadow($shadow) {
+  @include prefix(box-shadow, $shadow);
+}
+
+/**
+ * Box sizing
+ */
+@mixin box-sizing($type:border-box) {
+  @include prefix(box-sizing, $type); 
 }
 
 /**
@@ -15,5 +62,5 @@ $prefixes: webkit moz ms o;
   @each $prefix in $prefixes {
     -#{$prefix}-#{$property}: #{$value};
   }
-  #{$property}: #{$value}
+  #{$property}: #{$value};
 }
