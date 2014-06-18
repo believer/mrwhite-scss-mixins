@@ -1,0 +1,22 @@
+{
+  "name": "scss-mixins",
+  "version": "0.1.0",
+  "homepage": "https://github.com/believer/scss-mixins.git",
+  "authors": [
+    "Rickard Laurin <rickard.laurin@gmail.com>"
+  ],
+  "keywords": [
+    "scss",
+    "sass",
+    "css",
+    "mixins"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
