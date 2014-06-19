@@ -98,3 +98,10 @@ $prefixes: webkit moz ms o;
   }
   #{$property}: #{$value};
 }
+
+/**
+ * Transform
+ */
+@mixin transform($transform) {
+  @include prefix(transform, #{$transform});
+}
