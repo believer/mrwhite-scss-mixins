@@ -53,6 +53,23 @@
 }
 
 /**
+ * Centering
+ */
+@mixin centered($x,$y:$x) {
+  @include prefix(transform, translateX(#{$x}) translateY(#{$y}) );
+}
+
+@mixin center($coord, $x:top, $y:left, $xpos:0, $ypos:0) {
+  @if $coord == 'x' {
+    @include centered(-50%,0);
+  } @else if $coord == 'y' {
+    @include centered(0,-50%);
+  } @else if $coord == 'both' {
+    @include centered(-50%);
+  }
+}
+
+/**
  * Prefixes
  * @type {[type]}
  */
