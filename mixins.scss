@@ -169,3 +169,10 @@ $prefixes: webkit moz ms o;
 @mixin transform($transform) {
   @include prefix(transform, #{$transform});
 }
+
+/**
+ * Transition
+ */
+@mixin transition($type, $time: 300ms, $animation: ease) {
+  @include prefix(transition, $type $time $animation);
+}
