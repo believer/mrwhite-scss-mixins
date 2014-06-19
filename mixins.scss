@@ -47,6 +47,15 @@
   }
 }
 
+@mixin triangle-corner($direction1, $direction2, $size, $color) {
+  @include triangle-base();
+
+  $dir: if($direction2 == 'right', 'left', 'right');
+
+  border-#{$direction1}: $size solid $color;
+  border-#{$dir}: $size solid transparent;
+}
+
 /* Helper functions
 --------------------------------------------------------*/
 @function strip-units($number) {
