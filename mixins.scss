@@ -96,6 +96,13 @@
 }
 
 /**
+ * Inner shadow
+ */
+@mixin inner-shadow($shadow: 1px 1px 0px rgba(0,0,0,1)) {
+  @include prefix(box-shadow, inset #{$shadow});
+}
+
+/**
  * Positioning
  */
 @mixin positioned($d1, $d2, $p1, $p2, $p) {
