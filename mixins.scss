@@ -107,6 +107,15 @@ $prefixes: webkit moz ms o;
 }
 
 /**
+ * Text overflow
+ */
+@mixin text-overflow() {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/**
  * Transform
  */
 @mixin transform($transform) {
