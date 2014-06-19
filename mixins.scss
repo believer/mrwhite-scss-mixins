@@ -100,6 +100,13 @@ $prefixes: webkit moz ms o;
 }
 
 /**
+ * Rotate
+ */
+@mixin rotate($angle) {
+  @include transform(rotate($angle));
+}
+
+/**
  * Transform
  */
 @mixin transform($transform) {
