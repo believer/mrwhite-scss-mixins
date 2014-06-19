@@ -70,6 +70,23 @@
 }
 
 /**
+ * Positioning
+ */
+@mixin positioned($d1, $d2, $p1, $p2, $p) {
+  #{$d1}:#{$p1};
+  #{$d2}:#{$p2};
+  position:$p;
+}
+
+@mixin position($d1, $d2, $p1:0, $p2:0, $p:absolute, $full:false) {
+  @include positioned($d1,$d2,$p1,$p2,$p);
+  
+  @if $full == true {
+    @include size(100%);    
+  }
+}
+
+/**
  * Prefixes
  * @type {[type]}
  */
