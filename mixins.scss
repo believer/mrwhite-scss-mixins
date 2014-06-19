@@ -107,6 +107,13 @@ $prefixes: webkit moz ms o;
 }
 
 /**
+ * Scale
+ */
+@mixin scale($ratio) {
+  @include transform(scale($ratio));
+}
+
+/**
  * Text overflow
  */
 @mixin text-overflow() {
