@@ -21,6 +21,32 @@
   @include size($size);
 }
 
+@mixin triangle-base() {
+  @include size(0);
+
+  content:"";
+  display: inline-block;
+}
+
+@mixin triangle($direction, $size, $color) {
+  @include triangle-base();
+
+  @if $direction == 'up' or $direction == 'down' {
+    $dir: if($direction == 'up', 'down', 'up');
+    
+    border-right: $size solid transparent;
+    border-#{$dir}: $size solid $color;
+    border-left: $size solid transparent;
+
+  } @else if $direction == 'left' or $direction == 'right' {
+    $dir: if($direction == 'left', 'right', 'left');
+    
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-#{$dir}: $size solid $color;
+  }
+}
+
 /* Helper functions
 --------------------------------------------------------*/
 @function strip-units($number) {
@@ -176,3 +202,4 @@ $prefixes: webkit moz ms o;
 @mixin transition($type, $time: 300ms, $animation: ease) {
   @include prefix(transition, $type $time $animation);
 }
+
