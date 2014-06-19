@@ -212,3 +212,9 @@ $prefixes: webkit moz ms o;
   @include prefix(transition, $type $time $animation);
 }
 
+/**
+ * User select
+ */
+@mixin user-select($type:none) {
+  @include prefix(user-select, $type);
+}
