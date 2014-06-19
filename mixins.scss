@@ -21,6 +21,12 @@
   @include size($size);
 }
 
+/* Helper functions
+--------------------------------------------------------*/
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
 /* Mixins
 --------------------------------------------------------*/
 
@@ -67,6 +73,26 @@
   } @else if $coord == 'both' {
     @include centered(-50%);
   }
+}
+
+/**
+ * Columns
+ */
+@mixin columns($columns:2, $gap: 20px) {
+  @include prefix(column-count, $columns);
+  @include prefix(column-gap, $gap);
+}
+
+/**
+ * Font size
+ */
+@mixin font($size, $style:normal) {
+  $clean-size: strip-units($size);
+  $rem: ($clean-size / 10);
+
+  font-size:#{$clean-size} + "px";
+  font-size:#{$rem} + "rem";
+  font-style:$style;
 }
 
 /**
