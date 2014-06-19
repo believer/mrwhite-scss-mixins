@@ -103,6 +103,14 @@
 }
 
 /**
+ * Opacity
+ */
+@mixin opacity($opacity) {
+  @include prefix(opacity, $opacity/100);
+  filter:alpha(opacity=$opacity);
+}
+
+/**
  * Positioning
  */
 @mixin positioned($d1, $d2, $p1, $p2, $p) {
