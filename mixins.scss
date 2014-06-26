@@ -103,10 +103,13 @@
 @mixin center($coord, $x:top, $y:left, $xpos:0, $ypos:0) {
   @if $coord == 'x' {
     @include centered(-50%,0);
+    @include position($x, left, $xpos, 50%);
   } @else if $coord == 'y' {
     @include centered(0,-50%);
+    @include position(top, $y, 50%, $ypos);
   } @else if $coord == 'both' {
     @include centered(-50%);
+    @include position(top, left, 50%, 50%);
   }
 }
 
