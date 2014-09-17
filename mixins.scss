@@ -66,6 +66,13 @@
 --------------------------------------------------------*/
 
 /**
+ * Animations
+ */
+@mixin animation($name, $duration: 300ms, $easing: ease, $repeat: 1) {
+  @include prefix(animation, $name $duration $easing $repeat);
+}
+
+/**
  * Apperance
  */
 @mixin appearance($property:none) {
@@ -124,13 +131,15 @@
 /**
  * Font size
  */
-@mixin font($size, $style:normal) {
-  $clean-size: strip-units($size);
-  $rem: ($clean-size / 10);
+@function calculateRem($size) {
+  $rem: $size / 16px;
+  @return $rem * 1rem;  
+}
 
-  font-size:#{$clean-size} + "px";
-  font-size:#{$rem} + "rem";
-  font-style:$style;
+@mixin font($size, $style:normal) {
+  font-size: $size;
+  font-size: calculateRem($size);
+  font-style: $style;
 }
 
 /**
@@ -141,11 +150,21 @@
 }
 
 /**
+ * Keyframes
+ */
+@mixin keyframes($name) {
+  @-webkit-keyframes $name { @content; }
+     @-moz-keyframes $name { @content; }
+          @keyframes $name { @content; }
+}
+
+/**
  * Opacity
  */
 @mixin opacity($opacity) {
-  @include prefix(opacity, $opacity/100);
-  filter:alpha(opacity=$opacity);
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); // IE8
 }
 
 /**
