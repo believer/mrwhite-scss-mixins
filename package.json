@@ -1,0 +1,35 @@
+{
+  "name": "scss-mixins",
+  "version": "0.1.0",
+  "description": "sass-mixins ===========",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.1",
+    "gulp-plumber": "^0.6.3",
+    "gulp-sass": "^0.7.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.1",
+    "gulp-plumber": "^0.6.3",
+    "gulp-sass": "^0.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:believer/mrwhite-scss-mixins.git"
+  },
+  "keywords": [
+    "scss",
+    "sass",
+    "mixins",
+    "css"
+  ],
+  "author": "Rickard Laurin <rickard.laurin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/believer/mrwhite-scss-mixins/issues"
+  },
+  "homepage": "https://github.com/believer/mrwhite-scss-mixins"
+}

@@ -2,4 +2,3 @@ gulpfile.js
 node_modules
 app.css
 app.scss
-package.json
