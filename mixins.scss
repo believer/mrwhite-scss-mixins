@@ -16,6 +16,12 @@ $tablet-landscape: 959px;
   }
 }
 
+@mixin tablet () {
+  @media only screen and (min-width: $mobile-landscape) and (max-width: $tablet-landscape) {
+    @content;
+  }
+}
+
 /* Shapes and sizing
 --------------------------------------------------------*/
 @mixin size($width, $height:$width) {
