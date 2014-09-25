@@ -56,7 +56,7 @@ $tablet-landscape: 959px;
   @include triangle-base();
 
   @if $direction == 'up' or $direction == 'down' {
-    $dir: if($direction == 'up', 'down', 'up');
+    $dir: if($direction == 'up', 'bottom', 'top');
     
     border-right: $size solid transparent;
     border-#{$dir}: $size solid $color;
