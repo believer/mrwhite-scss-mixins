@@ -136,13 +136,21 @@ $tablet-landscape: 959px;
   @include prefix(transform, translateX(#{$x}) translateY(#{$y}) );
 }
 
-@mixin center($coord, $x:top, $y:left, $xpos:0, $ypos:0) {
+@mixin center($coord, $direction:"", $pos:0) {
   @if $coord == 'x' {
+    @if $direction == '' {
+      $direction: top;
+    }
+
     @include centered(-50%,0);
-    @include position($x, left, $xpos, 50%);
+    @include position($direction, left, $pos, 50%);
   } @else if $coord == 'y' {
+    @if $direction == '' {
+      $direction: left;
+    }
+
     @include centered(0,-50%);
-    @include position(top, $y, 50%, $ypos);
+    @include position(top, $direction, 50%, $pos);
   } @else if $coord == 'both' {
     @include centered(-50%);
     @include position(top, left, 50%, 50%);
