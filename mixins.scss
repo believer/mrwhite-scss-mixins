@@ -265,6 +265,13 @@ $prefixes: webkit moz ms o;
 }
 
 /**
+ * Translate X and Y
+ */
+@mixin translateXY($x, $y) {
+  @include transform(translateX($x) translateY($y));
+}
+
+/**
  * Transition
  */
 @mixin transition($type, $time: 300ms, $animation: ease) {
