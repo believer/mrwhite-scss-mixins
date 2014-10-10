@@ -190,9 +190,9 @@ $tablet-landscape: 959px;
  * Keyframes
  */
 @mixin keyframes($name) {
-  @-webkit-keyframes $name { @content; }
-     @-moz-keyframes $name { @content; }
-          @keyframes $name { @content; }
+  @-webkit-keyframes #{$name} { @content; }
+     @-moz-keyframes #{$name} { @content; }
+          @keyframes #{$name} { @content; }
 }
 
 /**
