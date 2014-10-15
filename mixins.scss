@@ -1,91 +1,14 @@
 @charset "UTF-8";
 
-/* ---------------------------------------------------- */
-/* Responsive mixins */
-$mobile-portrait: 480px;
-$mobile-landscape: 768px;
-$tablet-landscape: 959px;
-
-@mixin mobile () {
-  @media only screen and (max-width: $mobile-portrait) {
-    @content;
-  }
-}
-
-@mixin mobile-landscape () {
-  @media only screen and (min-width: $mobile-portrait) and (max-width: $mobile-landscape) {
-    @content;
-  }
-}
-
-@mixin tablet () {
-  @media only screen and (min-width: $mobile-landscape) and (max-width: $tablet-landscape) {
-    @content;
-  }
-}
+@import "helpers/all";
+@import "css3/all";
+@import "typography/all";
 
 /* Shapes and sizing
 --------------------------------------------------------*/
 @mixin size($width, $height:$width) {
   height:$height;
   width:$width;
-}
-
-@mixin circle($size) {
-  @include size($size);
-  @include border-radius($size);
-}
-
-@mixin oval($size) {
-  $half: $size / 2;
-  @include size($size, $half);
-  $radius:$size / $half + "px";
-  @include border-radius($radius);
-}
-
-@mixin square($size) {
-  @include size($size);
-}
-
-@mixin triangle-base() {
-  @include size(0);
-
-  content:"";
-  display: inline-block;
-}
-
-@mixin triangle($direction, $size, $color) {
-  @include triangle-base();
-
-  @if $direction == 'up' or $direction == 'down' {
-    $dir: if($direction == 'up', 'bottom', 'top');
-    
-    border-right: $size solid transparent;
-    border-#{$dir}: $size solid $color;
-    border-left: $size solid transparent;
-
-  } @else if $direction == 'left' or $direction == 'right' {
-    $dir: if($direction == 'left', 'right', 'left');
-    
-    border-top: $size solid transparent;
-    border-bottom: $size solid transparent;
-    border-#{$dir}: $size solid $color;
-  }
-}
-
-@mixin triangle-corner($direction1, $direction2, $size, $color) {
-  @include triangle-base();
-
-  $dir: if($direction2 == 'right', 'left', 'right');
-
-  border-#{$direction1}: $size solid $color;
-  border-#{$dir}: $size solid transparent;
-}
-
-/* Helper functions
---------------------------------------------------------*/
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
 }
 
 /* Mixins
@@ -117,18 +40,6 @@ $tablet-landscape: 959px;
  */
 @mixin box-shadow($shadow) {
   @include prefix(box-shadow, $shadow);
-}
-
-/**
- * Box sizing
- */
-@mixin box-sizing($type:border-box) {
-  @include prefix(box-sizing, $type); 
-
-  // keeps background from busting out of border 
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
 }
 
 /**
@@ -195,15 +106,6 @@ $tablet-landscape: 959px;
   @-webkit-keyframes #{$name} { @content; }
      @-moz-keyframes #{$name} { @content; }
           @keyframes #{$name} { @content; }
-}
-
-/**
- * Opacity
- */
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); // IE8
 }
 
 /**

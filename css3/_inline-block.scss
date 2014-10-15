@@ -1,0 +1,16 @@
+/**
+ * Inline-block
+ * -----------------------------
+ * $default-alignment = false
+ * 
+ */
+
+$default-alignment: false;
+
+@mixin inline-block ($alignment: $default-alignment) {
+  display: inline-block;
+
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+}

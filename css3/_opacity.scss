@@ -1,0 +1,23 @@
+/**
+ * Opacity
+ * -----------------------------
+ * description
+ * 
+ */
+
+// Base
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+
+  filter: alpha(opacity=$opacity-ie); // IE8
+  opacity: $opacity;
+}
+
+// Predefined
+@mixin transparent {
+  @include opacity(0);
+}
+
+@mixin opaque {
+  @include opacity(1);
+}

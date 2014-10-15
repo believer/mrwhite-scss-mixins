@@ -1,0 +1,21 @@
+$mobile-portrait: 480px;
+$mobile-landscape: 768px;
+$tablet-landscape: 959px;
+
+@mixin mobile () {
+  @media only screen and (max-width: $mobile-portrait) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape () {
+  @media only screen and (min-width: $mobile-portrait) and (max-width: $mobile-landscape) {
+    @content;
+  }
+}
+
+@mixin tablet () {
+  @media only screen and (min-width: $mobile-landscape) and (max-width: $tablet-landscape) {
+    @content;
+  }
+}

@@ -1,0 +1,38 @@
+/**
+ * List styles
+ * -----------------------------
+ * $default-margin = false
+ * 
+ */
+
+$default-margin: false;
+
+// Turn off the bullet of ONE element
+@mixin no-bullet {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+// Turn off bullets for a whole list
+@mixin no-bullets {
+  list-style: none;
+
+  li {
+    @include no-bullet;
+  }
+}
+
+// Make a list horizontal
+@mixin horizontal-list-item($margin: $default-margin) {
+  @include no-bullet;
+  
+  display: inline-block;
+  white-space: nowrap;
+
+  @if $margin {
+    &:not(:last-child) {
+      margin-right: $margin;
+    }
+  }
+}

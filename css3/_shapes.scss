@@ -1,0 +1,57 @@
+/**
+ * Shapes
+ * -----------------------------
+ * description
+ * 
+ */
+
+@mixin circle($size) {
+  @include size($size);
+  @include border-radius($size);
+}
+
+@mixin oval($size) {
+  $half: $size / 2;
+  @include size($size, $half);
+  $radius:$size / $half + "px";
+  @include border-radius($radius);
+}
+
+@mixin square($size) {
+  @include size($size);
+}
+
+@mixin triangle-base() {
+  @include size(0);
+
+  content:"";
+  display: inline-block;
+}
+
+@mixin triangle($direction, $size, $color) {
+  @include triangle-base();
+
+  @if $direction == 'up' or $direction == 'down' {
+    $dir: if($direction == 'up', 'bottom', 'top');
+    
+    border-right: $size solid transparent;
+    border-#{$dir}: $size solid $color;
+    border-left: $size solid transparent;
+
+  } @else if $direction == 'left' or $direction == 'right' {
+    $dir: if($direction == 'left', 'right', 'left');
+    
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-#{$dir}: $size solid $color;
+  }
+}
+
+@mixin triangle-corner($direction1, $direction2, $size, $color) {
+  @include triangle-base();
+
+  $dir: if($direction2 == 'right', 'left', 'right');
+
+  border-#{$direction1}: $size solid $color;
+  border-#{$dir}: $size solid transparent;
+}

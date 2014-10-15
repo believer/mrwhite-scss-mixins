@@ -1,0 +1,12 @@
+/**
+ * Box-sizing
+ * -----------------------------
+ * $default-box-sizing = border-box
+ * 
+ */
+
+$default-box-sizing: border-box;
+
+@mixin box-sizing($box-model: $default-box-sizing) {
+  @include prefix(box-sizing, $box-model); 
+}
