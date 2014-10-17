@@ -6,9 +6,21 @@
 
 /* Shapes and sizing
 --------------------------------------------------------*/
-@mixin size($width, $height:$width) {
-  height:$height;
-  width:$width;
+@mixin size($width, $height:$width, $type: 'normal') {
+  @if str-index($type, 'normal') {
+    height: $height;
+    width: $width;
+  }
+
+  @if str-index($type, 'min') {
+    min-height: $height;
+    min-width: $width;
+  }
+
+  @if str-index($type, 'max') {
+    max-height: $height;
+    max-width: $width;
+  }
 }
 
 /* Mixins
