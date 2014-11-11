@@ -19,3 +19,33 @@ $tablet-landscape: 959px;
     @content;
   }
 }
+
+//
+// Devices
+// 
+// Takes arguments as device names to include same content
+// for different device sizes
+// 
+// (eg. @include devices('mobile-landscape', 'mobile'))
+// --------------------------------------------------
+@mixin devices ($devices...) {
+  @each $device in $devices {
+    @if ($device == 'tablet') {
+      @include tablet {
+        @content;
+      }
+    }
+
+    @if ($device == 'mobile-landscape') {
+      @include mobile-landscape {
+        @content;
+      }
+    }
+
+    @if ($device == 'mobile') {
+      @include mobile {
+        @content;
+      }
+    }
+  }
+}
