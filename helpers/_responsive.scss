@@ -37,6 +37,12 @@ $desktop: 1025px;
 // --------------------------------------------------
 @mixin devices ($devices...) {
   @each $device in $devices {
+    @if ($device == 'desktop') {
+      @include desktop {
+        @content;
+      }
+    }
+
     @if ($device == 'tablet') {
       @include tablet {
         @content;
