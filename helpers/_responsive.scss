@@ -1,6 +1,13 @@
 $mobile-portrait: 480px;
 $mobile-landscape: 768px;
 $tablet-landscape: 959px;
+$desktop: 1025px;
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
 
 @mixin mobile () {
   @media only screen and (max-width: $mobile-portrait) {
