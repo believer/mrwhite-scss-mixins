@@ -4,8 +4,9 @@
 @import "css3/all";
 @import "typography/all";
 
-/* Shapes and sizing
---------------------------------------------------------*/
+//
+// Shapes and sizing
+// --------------------------------------------------
 @mixin size($width, $height:$width, $type: 'normal') {
   @if str-index($type, 'normal') {
     height: $height;
@@ -23,40 +24,31 @@
   }
 }
 
-/* Mixins
---------------------------------------------------------*/
+//
+// Mixins
+// --------------------------------------------------
 
-/**
- * Animations
- */
+// Animations
 @mixin animation($name, $duration: 300ms, $easing: ease, $repeat: 1) {
   @include prefix(animation, $name $duration $easing $repeat);
 }
 
-/**
- * Apperance
- */
+// Appearance
 @mixin appearance($property:none) {
   @include prefix(appearance, $property);
 }
 
-/**
- * Border radius
- */
+// Border radius
 @mixin border-radius($radius:3px) {
   @include prefix(border-radius, $radius);
 }
 
-/**
- * Box shadow
- */
+// Box shadow
 @mixin box-shadow($shadow) {
   @include prefix(box-shadow, $shadow);
 }
 
-/**
- * Centering
- */
+// Centering
 @mixin centered($x,$y:$x) {
   @include prefix(transform, translateX(#{$x}) translateY(#{$y}) );
 }
@@ -82,17 +74,13 @@
   }
 }
 
-/**
- * Columns
- */
+// Columns
 @mixin columns($columns:2, $gap: 20px) {
   @include prefix(column-count, $columns);
   @include prefix(column-gap, $gap);
 }
 
-/**
- * Font size
- */
+// Font size
 @function calculateRem($size) {
   $rem: $size / 16px;
   @return $rem * 1rem;  
@@ -104,25 +92,19 @@
   font-style: $style;
 }
 
-/**
- * Inner shadow
- */
+// Inner shadow
 @mixin inner-shadow($shadow: 1px 1px 0px rgba(0,0,0,1)) {
   @include prefix(box-shadow, inset #{$shadow});
 }
 
-/**
- * Keyframes
- */
+// Keyframes
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} { @content; }
      @-moz-keyframes #{$name} { @content; }
           @keyframes #{$name} { @content; }
 }
 
-/**
- * Positioning
- */
+// Positioning
 @mixin positioned($d1, $d2, $p1, $p2, $p) {
   #{$d1}:#{$p1};
   #{$d2}:#{$p2};
@@ -137,10 +119,7 @@
   }
 }
 
-/**
- * Prefixes
- * @type {[type]}
- */
+// Prefixes
 $prefixes: webkit moz ms o;
 
 @mixin prefix($property, $value) {
@@ -150,53 +129,39 @@ $prefixes: webkit moz ms o;
   #{$property}: #{$value};
 }
 
-/**
- * Rotate
- */
+// Rotate
 @mixin rotate($angle) {
   @include transform(rotate($angle));
 }
 
-/**
- * Scale
- */
+// Scale
 @mixin scale($ratio) {
   @include transform(scale($ratio));
 }
 
-/**
- * Text overflow
- */
+// Text overflow
 @mixin text-overflow() {
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
 
-/**
- * Transform
- */
+// Transform
 @mixin transform($transform) {
   @include prefix(transform, #{$transform});
 }
 
-/**
- * Translate X and Y
- */
+// Translate X and Y
 @mixin translateXY($x, $y) {
   @include transform(translateX($x) translateY($y));
 }
 
-/**
- * Transition
- */
+// Transition
 @mixin transition($type, $time: 300ms, $animation: ease) {
   @include prefix(transition, $type $time $animation);
 }
 
-/**
- * User select
- */
+// User select
 @mixin user-select($type:none) {
   @include prefix(user-select, $type);
 }
