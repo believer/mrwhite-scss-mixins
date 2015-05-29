@@ -32,6 +32,12 @@ $desktop: 1025px;
   }
 }
 
+@mixin tablet-landscape () {
+  @media only screen and (min-width: $tablet-landscape) and (max-width: $desktop) {
+    @content;
+  }
+}
+
 //
 // Devices
 // 
@@ -44,6 +50,12 @@ $desktop: 1025px;
   @each $device in $devices {
     @if ($device == 'desktop') {
       @include desktop {
+        @content;
+      }
+    }
+
+    @if ($device == 'tablet-landscape') {
+      @include tablet-landscape {
         @content;
       }
     }
